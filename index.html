@@ -1,0 +1,57 @@
+{% extends 'nav.html' %}
+
+<title>
+  {% block title %}
+  Home Page
+  {% endblock title %}
+</title>
+
+{% block body %}
+
+
+{% with messages=get_flashed_messages (with_categories=true)%}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+{{message}}
+
+  <button type="button” class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+
+  <header class="jumbotron">
+	  <h1>Welcome to My Hospital</h1>
+	  <p>We are committed to providing high-quality medical care to our patients.</p>
+	  <a class="btn btn-primary btn-lg" href="https://en.wikipedia.org/wiki/Hospital" role="button">Learn More</a>
+	</header>
+
+	<!-- Main Content -->
+	<main class="container my-4">
+	  <div class="row">
+	    <div class="col-md-8">
+	      <h2>About Us</h2>
+	      <p>My Hospital is a leading healthcare provider in the region, with state-of-the-art facilities and a team of highly qualified healthcare professionals. We are dedicated to providing the highest quality medical care to our patients, using the latest medical technologies and treatments.</p>
+	    </div>
+	    <div class="col-md-4">
+	      <h2>Contact Us</h2>
+	      <p>123 Main Street<br>
+	         xyz, india<br>
+	         Phone: xxxxxxxxxx<br>
+	         Email: info@myhospital.com</p>
+	    </div>
+	  </div>
+	  <hr>
+	  <h2>Our Services</h2>
+	  <div class="row">
+	    <div class="col-md-4">
+	      <div class="card">
+	        <img src="static\images\download.jpeg" class="card-img-top" alt="...">
+	        <div class="
+{% endblock body %}

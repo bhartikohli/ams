@@ -1,0 +1,99 @@
+{% extends 'nav.html' %}
+
+<title>
+  {% block title %}
+  Edit Booking Page
+  {% endblock title %}
+</title>
+
+
+{% block body %}
+<div class="container mt-3">
+
+  <div class="row">
+
+    <div class="col-md-5">
+
+
+
+    </div>
+    
+    <div class="col-md-5">
+      <!--form part of the page -->
+      <h4 class="text-center bg-danger text-white">Update Your Booking</h4>
+<br>
+
+
+
+<form action="/edit/<int:bid>" method="post" class="jumbotron">
+
+ 
+
+  
+
+  <div class="form-group">
+  
+    <input type="text" class="form-control" id="name" name="name" placeholder="{{user[2]}}" required>
+  
+  </div>
+
+ <div class="form-group">
+
+            
+                                      
+<select class="form-control" id="gender" name="gender"  required>
+        <option selected>{{user[3]}}</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+ 
+      </select>
+ </div>
+
+ <div class="form-group">
+
+            
+                                      
+<select class="form-control" id="slot" name="slot">
+        <option selected>{{user[4]}}</option>
+        <option value="morning">Morning</option>
+        <option value="evening">Evening</option>
+        <option value="night">Night</option>
+ 
+      </select>
+ </div>
+
+    
+    <input type="text" class="form-control" id="disease" name="disease" placeholder="{{user[5]}}" required>
+  
+  </div>
+
+<div class="form-group">
+
+            
+                                      
+<select class="form-control" id="dept" name="dept"  required>
+        <option selected>{{user[6]}}</option>
+        <option value="Cardiologists">Cardiologists</option>
+        <option value="Dermatologists">Dermatologists</option>
+        <option value="Physicians">Physicians</option>
+        <option value="Neurologists">Neurologists</option>
+        <option value="Pediatricians">Pediatricians</option>
+      </select>
+ </div>
+
+  <div class="form-group">
+
+    <input type="number" class="form-control" id="phone" name="phone" placeholder="{{user[7]}}" required>
+  
+  </div>
+
+  
+  <button type="Update" class="btn btn-danger btn-sm btn-block">Update</button>
+</form>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock body %}

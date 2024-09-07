@@ -1,0 +1,64 @@
+{% extends 'nav2.html' %}
+
+<title>
+  {% block title %}
+  Doctors' LogIn Page
+  {% endblock title %}
+</title>
+
+{% block body %}
+
+<!-- container class so that the page do not stretch to whole page -->
+
+<div class="container mt-3">
+  <div class="row">
+  
+    <div class="col-md-3"> </div>
+    <div class="col-md-6">
+
+      
+ 
+
+      <form action="/doctors" method="POST">
+        <h3 class="text-center">LogIn here</h3>
+        {% with messages=get_flashed_messages (with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        
+          <button type="button” class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+  
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+        </div>
+  
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">LogIn</button>
+      </form>
+
+      <br>
+
+      
+    </div>
+    <div class="col-md-3"> </div>
+  
+  </div>
+  </div>
+
+
+
+{% endblock body %}

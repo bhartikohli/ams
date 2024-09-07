@@ -1,0 +1,57 @@
+{% extends 'nav3.html' %}
+
+<title>
+  {% block title %}
+  DOCTORS REGISTERED
+  {% endblock title %}
+</title>
+
+{% block body %}
+
+{% with messages=get_flashed_messages (with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        
+          <button type="button” class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="/a">back</a>
+          </li>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">DID</th>
+                <th scope="col">EMAIL ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">DEPARTMENT</th>
+                <th scope="col">PASSWORD</th>
+
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {% for post in query %}
+              <tr>
+                <th scope="row">{{post[3]}}</th>
+                <td>{{post[1]}}</td>
+                <td>{{post[0]}}</td>
+                <td>{{post[4]}}</td>
+                <td>{{post[2]}}</td>
+                
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+
+{% endblock body %}
